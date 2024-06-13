@@ -1,0 +1,23 @@
+.window {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    border: 1px solid #27282c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #27282c;
+    border-radius: .5rem;
+    margin: auto;
+  }
+  
+  .title-bar {
+    background-color: rgba(32, 32, 32, 0.835);
+    color: white;
+    padding: 10px;
+    // cursor: move;
+    user-select: none; /* Impede a seleção de texto ao arrastar */
+  }
+  
+  .content {
+    padding: 10px;
+  }
+  

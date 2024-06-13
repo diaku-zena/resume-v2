@@ -1,0 +1,14 @@
+<div class="window" #draggableWindow>
+    <div class="title-bar d-flex justify-content-between" (mousedown)="onMouseDown($event)">
+      <span class="title">Minha Janela</span>
+      <div class="window-options">
+        <span class="hide">-</span>
+        <span class="maximise"></span>
+        <span class="close">X</span>
+      </div>
+    </div>
+    <div class="content">
+      <p>Conteúdo da janela.</p>
+    </div>
+  </div>
+  
