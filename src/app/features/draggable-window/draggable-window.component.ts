@@ -1,41 +1,85 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { WindowService } from '../../core/services/window.service';
+import { NgClass, NgIf } from '@angular/common';
+import { DraggableService } from '../../core/services/draggable.service';
+
+
+interface WindowData {
+  id: number;
+  title: string;
+  content: string;
+  isActive: boolean;
+  zIndex: number;
+  isMinimized: boolean;
+  isExpanded: boolean;
+}
 
 @Component({
   selector: 'app-draggable-window',
   standalone: true,
-  imports: [],
+  imports: [NgClass, NgIf],
   templateUrl: './draggable-window.component.html',
   styleUrl: './draggable-window.component.scss'
 })
-export class DraggableWindowComponent implements AfterViewInit {
+export class DraggableWindowComponent implements AfterViewInit{
+  @Input() windowData!: WindowData;
+  @Output() windowClick = new EventEmitter<number>();
+  @Output() windowClose = new EventEmitter<number>();
+  @Output() windowMinimize = new EventEmitter<number>();
+  @Output() windowExpand = new EventEmitter<number>();
   @ViewChild('draggableWindow') draggableWindow!: ElementRef;
-
+  
   isDragging = false;
   offsetX = 0;
   offsetY = 0;
+  windowRef: Window | null;
+
+  constructor(private windowService: WindowService, private elementRef: ElementRef, private draggableService: DraggableService) {
+    this.windowRef = this.windowService.windowRef;
+  }
 
   ngAfterViewInit() {
-    // Inicializa a posição da janela, se necessário
-    // this.draggableWindow.nativeElement.style.top = '100px';
-    // this.draggableWindow.nativeElement.style.left = '100px';
-    this.centerWindow();
+    if (this.windowRef) {
+      this.centerWindow();
+    }
+
+  }
+
+  private bringToFront() {
+    const element = this.elementRef.nativeElement;
+    element.style.zIndex = this.windowData.zIndex;
+  }
+
+  onClose() {
+    this.windowClose.emit(this.windowData.id);
+  }
+
+  onMinimize() {
+    this.windowMinimize.emit(this.windowData.id);
+  }
+
+  onExpand() {
+    this.windowExpand.emit(this.windowData.id);
   }
 
   centerWindow() {
-    const windowElement = this.draggableWindow.nativeElement;
-    const windowWidth = windowElement.offsetWidth;
-    const windowHeight = windowElement.offsetHeight;
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+    if (this.windowRef) {
+      const windowElement = this.draggableWindow.nativeElement;
+      const windowWidth = windowElement.offsetWidth;
+      const windowHeight = windowElement.offsetHeight;
+      const viewportWidth = this.windowRef.innerWidth;
+      const viewportHeight = this.windowRef.innerHeight;
 
-    const top = (viewportHeight - windowHeight) / 2;
-    const left = (viewportWidth - windowWidth) / 2;
+      const top = (viewportHeight - windowHeight) / 2;
+      const left = (viewportWidth - windowWidth) / 2;
 
-    windowElement.style.top = `${top}px`;
-    windowElement.style.left = `${left}px`;
+      windowElement.style.top = `${top}px`;
+      windowElement.style.left = `${left}px`;
+    }
   }
 
   onMouseDown(event: MouseEvent) {
+    this.bringToFront();
     this.isDragging = true;
     // Calcula o deslocamento (offset) inicial em relação à posição da janela
     this.offsetX = event.clientX - this.draggableWindow.nativeElement.getBoundingClientRect().left;
@@ -55,6 +99,10 @@ export class DraggableWindowComponent implements AfterViewInit {
   @HostListener('document:mouseup')
   onMouseUp() {
     this.isDragging = false;
+  }
+
+  onClick() {
+    this.windowClick.emit(this.windowData.id);
   }
 
 }

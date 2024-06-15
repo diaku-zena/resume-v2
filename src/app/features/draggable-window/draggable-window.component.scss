@@ -1,14 +1,35 @@
+
 .window {
     position: absolute;
     width: 600px;
     height: 400px;
     border: 1px solid #27282c;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: z-index 0.2s, width 0.2s, height 0.2s;
+  overflow: hidden;
     background-color: #27282c;
     border-radius: .5rem;
     margin: auto;
   }
+
+  .window.active {
+    border-color: #007bff;
+    z-index: 999;
+  }
+  .window.minimized {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    bottom: 0;
+  }
   
+  .window.expanded {
+    width: 100vw;
+    height: 100vh;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
   .title-bar {
     background-color: rgba(32, 32, 32, 0.835);
     color: white;
@@ -21,3 +42,27 @@
     padding: 10px;
   }
   
+  .window-options {
+    display: flex;
+    align-items: flex-start;
+
+  }
+
+  .window-options span {
+    cursor: pointer;
+    padding: .3rem;
+    margin: 0 .3rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+
+    user-select: none;
+  }
+  .window-options span:hover{
+    background-color: #4241419e;
+  }
+
+  .fa-window-minimize {
+    transform: translateY(-18%);
+  }

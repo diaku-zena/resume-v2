@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JanelaComponent } from './janela.component';
+import { DesktopComponent } from './desktop.component';
 
-describe('JanelaComponent', () => {
-  let component: JanelaComponent;
-  let fixture: ComponentFixture<JanelaComponent>;
+describe('DesktopComponent', () => {
+  let component: DesktopComponent;
+  let fixture: ComponentFixture<DesktopComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JanelaComponent]
+      imports: [DesktopComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(JanelaComponent);
+    fixture = TestBed.createComponent(DesktopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

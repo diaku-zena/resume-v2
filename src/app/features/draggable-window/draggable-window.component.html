@@ -1,14 +1,15 @@
-<div class="window" #draggableWindow>
-    <div class="title-bar d-flex justify-content-between" (mousedown)="onMouseDown($event)">
-      <span class="title">Minha Janela</span>
-      <div class="window-options">
-        <span class="hide">-</span>
-        <span class="maximise"></span>
-        <span class="close">X</span>
-      </div>
-    </div>
-    <div class="content">
-      <p>Conteúdo da janela.</p>
+<div class="window" #draggableWindow [ngClass]="{
+  'active': windowData.isActive,
+  'minimized': windowData.isMinimized,
+  'expanded': windowData.isExpanded
+}" (click)="onClick()">
+  <div class="title-bar d-flex justify-content-between" (mousedown)="onMouseDown($event)">
+    <span class="title">{{ windowData.title }}</span>
+    <div class="window-options">
+      <span class="fa fa-window-minimize" (click)="onMinimize()"></span>
+      <span class="fa fa-window-maximize" (click)="onExpand()"></span>
+      <span class="fa fa-times" (click)="onClose()"></span>
     </div>
   </div>
-  
+  <div class="content" [innerHTML]="windowData.content" *ngIf="!windowData.isMinimized"></div>
+</div>

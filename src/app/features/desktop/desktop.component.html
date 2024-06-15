@@ -1,0 +1,9 @@
+<div class="apps-container" >
+    @for (app of appsList; track $index) {
+        <div  #draggableApp class="app-item-container" (click)="onAppClick(app)">
+          <h5 class="app-desk-item" [ngClass]="app.bgColor">{{ app.simbol}}</h5>
+          <div class="app-title">{{ app.title }}</div>
+        </div>
+
+    }
+  </div>

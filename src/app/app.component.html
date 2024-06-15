@@ -2,47 +2,27 @@
   <small>Diaku Zena Manuel</small>
   <h5>Fullstack Developer</h5>
 </header>
-<main (contextmenu)="onRightClick($event)">
-  <div class="apps-container">
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-success">sm</h5>
-      <div class="app-title">Sobre Mim</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-primary">exp</h5>
-      <div class="app-title">Experiencias</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-gray">crt</h5>
-      <div class="app-title">Certificados</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-info">HB</h5>
-      <div class="app-title">Hobies</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-primary">fac</h5>
-      <div class="app-title">Formação Acadêmica</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-success">PJ</h5>
-      <div class="app-title">Projetos</div>
-    </div>
-    <div class="app-item-container">
-      <h5 class="app-desk-item bg-danger">SK</h5>
-      <div class="app-title">Skills</div>
-    </div>
-  </div>
+<!-- <main (contextmenu)="onRightClick($event)">
+  <app-desktop (appClick)="onAppClick($event)"></app-desktop>
   <app-draggable-window></app-draggable-window>
+  <app-context-menu #contextMenu></app-context-menu>
+</main> -->
+<main (contextmenu)="onRightClick($event)">
+  <app-desktop (appClick)="onAppClick($event)"></app-desktop>
+  <ng-container *ngFor="let window of openWindows">
+    <app-draggable-window
+      [windowData]="window"
+      (windowClick)="onWindowClick(window.id)"
+      (windowClose)="onWindowClose(window.id)"
+      (windowMinimize)="onWindowMinimize(window.id)"
+      (windowExpand)="onWindowExpand(window.id)">
+    </app-draggable-window>
+  </ng-container>
   <app-context-menu #contextMenu></app-context-menu>
 </main>
 
 <footer>
   <h6 class="logo px-1">DZM</h6>
-  <div class="open-apps">
-    <div class="open-app-item">
-      <h5 class="app-desk-item bg-gray">crt</h5>
-    </div>
-  </div>
+  <app-taskbar [openApps]="openApps" (openAppTaskbar)="openWindowTaskBar()"></app-taskbar>
   <div class="right-tools">11:11</div>
 </footer>
