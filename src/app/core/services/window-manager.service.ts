@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { App } from '../../app.component';
+import { AboutMeComponent } from '../../shared/components/about-me/about-me.component';
 
-interface WindowData {
+export interface WindowData {
   id: number;
   title: string;
   simbol: string;
   bgColor: string;
-  content: string;
+  content: any;
   isActive: boolean;
   zIndex: number;
   isMinimized: boolean;
@@ -35,7 +36,7 @@ export class WindowManagerService {
       title: app.title,
       bgColor: app.bgColor,
       simbol: app.simbol,
-      content,
+      content: AboutMeComponent,
       isActive: true,
       zIndex: this.baseZIndex + this.windows.length,
       isMinimized: false,

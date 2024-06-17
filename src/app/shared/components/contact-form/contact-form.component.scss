@@ -1,0 +1,40 @@
+
+.contact {
+    width: 400px;
+    height: 0;
+    border-radius: .5rem;
+    position: absolute;
+    background-color: #29303ff3;
+    right: 0;
+    bottom: 100%;
+    cursor: auto;
+    overflow: hidden;
+    clip-path: 0;
+    color: #212840e9;
+    padding: 1rem;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease-in-out;
+}
+
+.contact.active {
+    height: 500px;
+    opacity: 1;
+    pointer-events: auto;
+    clip-path: polygon(50% 0%, 100% 0, 100% 95%, 95% 100%, 90% 96%, 31% 96%, 0 96%, 0 40%, 0 0);
+}
+
+.contact h5 {
+    color: #def7ff;
+    text-align: center;
+}
+.form-floating {
+    
+}
+.contact .btn-primary {
+    background-color: rgba(95, 20, 244, 0.894);
+}
+.contact input, .contact textarea {
+    background-color: #a0a3a8ec;
+}

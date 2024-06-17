@@ -22,8 +22,18 @@ export class DesktopComponent {
   offsetY = 0;
   windowRef: Window | null;
 
+  selectedApp: App | null = null;
   onAppClick(app: App) {
     this.appClick.emit(app);
+  }
+
+  selectApp(draggableApp: HTMLElement, app: App){
+    this.selectedApp = app;
+    draggableApp.classList.add("selected");
+  }
+
+  isSelected(app: App) {
+    return this.selectedApp && this.selectedApp.id === app.id;
   }
 
   constructor(private windowService: WindowService,) {

@@ -1,0 +1,52 @@
+<div class="d-flex parent">
+    <div class="left-menu">
+        <p [ngClass]="varControl=='userInfo'? 'active':''" (click)="selectElement('userInfo')">Quem sou</p>
+        <p class="mt-2" [ngClass]="varControl=='contactInfo'? 'active':''" (click)="selectElement('contactInfo')">Contacto</p>
+    </div>
+    <div class="content w-100">
+        <div class="content-header">
+            <div class="user-photo">
+                <img src="assets/img/user-photo.jpg" alt="">
+            </div>
+            <div class="user-role">
+                <p>Diaku Zena Manuel</p>
+                <h5>Programador Web Fullstack</h5>
+                <small class="text-success">Engenheiro Informatico</small>
+            </div>
+        </div>
+        <div class="user-info" *ngIf="varControl=='userInfo'">
+            <ul>
+                <li class="text-color">Tive o meu "Ola, mundo!" como programador em 2018. Comecei o meu percurso como desenvolvedor web em 2020. Sou curioso e gosto de aprender novas tecnologias e estou em constante pesquisa a fim de melhorar o meu nível de conhecimento.</li>
+                <li class="text-color">Trabalho atualmente como Desenvolvedor de Aplicações Web e como Tecnico de Administração de TI na Angola Telecom.</li>
+                <li class="text-color">Ao longo da minha carreira tenho me dedicado bastante para poder alcançar os meus objectivos. Sou apaixonado pelo que faço.</li>
+            </ul>
+            <p></p>
+            <p ></p>
+            <p></p> 
+        </div>
+        <div class="contact-info" *ngIf="varControl=='contactInfo'">
+            <div class="contact-header">
+                <div class="phone c-item">
+                    <i class="fa fa-phone"></i> +244 934 44 66 99
+                </div>
+                <div class="email c-item">
+                    <i class="fa fa-envelope"></i> <span>diakuzena&#64;gmail.com</span>
+                </div>
+                <div class="endereco c-item">
+                    <i class="fa-solid fa-location-dot"></i> Luanda, Angola
+                </div>
+            </div>
+            <div class="social d-flex">
+                <a href="https://www.linkedin.com/in/diakuzena/" target="_blank" class="linkedin c-item">
+                    <i class="fa-brands fa-linkedin-in"></i> Linkedin
+                </a>
+                <a href="https://github.com/diaku-zena" target="_blank" class="git c-item">
+                    <i class="fa-brands fa-github"></i> Git
+                </a>
+                <a href="" target="_blank" class="git c-item">
+                    <i class="fa-regular fa-file"></i> CV
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

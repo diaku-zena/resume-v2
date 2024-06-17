@@ -6,6 +6,7 @@ import { DesktopComponent } from "./features/desktop/desktop.component";
 import { TaskbarComponent } from "./features/taskbar/taskbar.component";
 import { WindowManagerService } from './core/services/window-manager.service';
 import { NgFor } from '@angular/common';
+import { RightToolsComponent } from "./shared/components/right-tools/right-tools.component";
 
 
 export interface App {
@@ -22,8 +23,8 @@ export interface App {
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, NgFor, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent,],
-    providers: [WindowManagerService]
+    providers: [WindowManagerService],
+    imports: [RouterOutlet, NgFor, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent]
 })
 export class AppComponent {
   title = 'resume-v2';

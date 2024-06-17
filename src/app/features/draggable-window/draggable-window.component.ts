@@ -1,25 +1,20 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { WindowService } from '../../core/services/window.service';
 import { NgClass, NgIf } from '@angular/common';
 import { DraggableService } from '../../core/services/draggable.service';
+import { WindowData } from '../../core/services/window-manager.service';
+import { AboutMeComponent } from '../../shared/components/about-me/about-me.component';
+import { SkillsComponent } from "../../shared/components/skills/skills.component";
+import { ExperienceComponent } from "../../shared/components/experience/experience.component";
+import { ProjectsComponent } from "../../shared/components/projects/projects.component";
 
-
-interface WindowData {
-  id: number;
-  title: string;
-  content: string;
-  isActive: boolean;
-  zIndex: number;
-  isMinimized: boolean;
-  isExpanded: boolean;
-}
 
 @Component({
-  selector: 'app-draggable-window',
-  standalone: true,
-  imports: [NgClass, NgIf],
-  templateUrl: './draggable-window.component.html',
-  styleUrl: './draggable-window.component.scss'
+    selector: 'app-draggable-window',
+    standalone: true,
+    templateUrl: './draggable-window.component.html',
+    styleUrl: './draggable-window.component.scss',
+    imports: [NgClass, NgIf, AboutMeComponent, SkillsComponent, ExperienceComponent, ProjectsComponent]
 })
 export class DraggableWindowComponent implements AfterViewInit{
   @Input() windowData!: WindowData;
@@ -34,6 +29,20 @@ export class DraggableWindowComponent implements AfterViewInit{
   offsetY = 0;
   windowRef: Window | null;
 
+  get contentComponent() {
+    // Determina qual componente de conteúdo usar com base no tipo de conteúdo
+    // Pode ser expandido para lidar com mais tipos de conteúdo
+    if (typeof this.windowData.content === 'string') {
+      return AboutMeComponent; // Exemplo com componente de parágrafo
+    }
+    // Adicione outras lógicas aqui para mais tipos de conteúdo
+
+    return null;
+  }
+
+
+  @ViewChild('dynamicContent', { read: ViewContainerRef }) dynamicContent!: ViewContainerRef;
+  
   constructor(private windowService: WindowService, private elementRef: ElementRef, private draggableService: DraggableService) {
     this.windowRef = this.windowService.windowRef;
   }

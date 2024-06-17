@@ -1,0 +1,11 @@
+<div class="right-tools">
+    <div class="user">
+      <app-contact-form [showContactForm]="showContactForm"></app-contact-form>
+      <span class="fa fa-message" (click)="showContactForm=!showContactForm"></span>
+
+    </div>
+    <div class="config">
+      <span class="fa fa-gear"></span>
+    </div>
+    <app-time-date></app-time-date>
+  </div>

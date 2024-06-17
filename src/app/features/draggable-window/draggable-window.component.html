@@ -1,8 +1,5 @@
-<div class="window" #draggableWindow [ngClass]="{
-  'active': windowData.isActive,
-  'minimized': windowData.isMinimized,
-  'expanded': windowData.isExpanded
-}" (click)="onClick()">
+<div class="window" #draggableWindow [ngClass]="{'active': windowData.isActive, 'minimized': windowData.isMinimized,
+  'expanded': windowData.isExpanded}" (click)="onClick()">
   <div class="title-bar d-flex justify-content-between" (mousedown)="onMouseDown($event)">
     <span class="title">{{ windowData.title }}</span>
     <div class="window-options">
@@ -11,5 +8,17 @@
       <span class="fa fa-times" (click)="onClose()"></span>
     </div>
   </div>
-  <div class="content" [innerHTML]="windowData.content" *ngIf="!windowData.isMinimized"></div>
+  <div class="window-body d-flex h-100 w-100" *ngIf="!windowData.isMinimized">
+    @if(windowData.title == "Sobre Mim"){
+      <app-about-me></app-about-me>
+    } @else if(windowData.title == "Skills"){
+      <app-skills></app-skills>
+    } @else if(windowData.title == "Experiencias"){
+      <app-experience></app-experience>
+    } @else if(windowData.title == "Projetos"){
+      <app-projects></app-projects>
+    }
+
+
+  </div>
 </div>

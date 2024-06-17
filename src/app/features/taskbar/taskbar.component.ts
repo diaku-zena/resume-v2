@@ -27,8 +27,16 @@ export class TaskbarComponent {
   activateWindow(windowId: number) {
     const window = this.openWindows.find(window => window.id === windowId);
     if(window){
-      window.isMinimized = !window.isMinimized;
+      if(!window.isActive && !window.isMinimized){
+        this.windowManager.activateWindow(windowId);
+      } else {
+        window.isMinimized = !window.isMinimized;
+        if(!window.isMinimized){
+          this.windowManager.activateWindow(windowId);
+        }
+
+      }
     }
-    this.windowManager.activateWindow(windowId);
+    
   }
 }

@@ -33,6 +33,7 @@ footer {
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
     z-index: 10000;
 }
 
@@ -81,7 +82,7 @@ footer {
     border-radius: .5rem;
 }
 
-.app-item-container:hover {
+.app-item-container:hover, .app-item-container.selected {
     background-color: #68676791;
     cursor: pointer;
 }
@@ -105,3 +106,88 @@ footer {
     transition: all .2s;
     cursor: pointer;
 }
+
+.right-tools {
+    display: flex;
+    align-items: center;
+    margin: 0 1.5rem;
+}
+
+.right-tools > * {
+    margin: 0 .05rem;
+    padding: .5rem;
+    cursor: pointer;
+    border-radius: .5rem;
+    align-self: stretch;
+    display: grid;
+    place-items: center;
+}
+
+.right-tools > *:hover {
+    background-color: #434141a5;
+}
+
+.config {
+    
+}
+
+.timedate {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    line-height: 1.3;
+
+    font-size: 12px;
+}
+
+
+
+
+  .left-menu {
+    border-right: 1px solid #3f424e;
+    padding: 1rem;
+    height: calc(100% - 44px);
+    width: 33%;
+
+    font-size: 14px;
+    overflow-y: scroll;
+  }
+
+.left-menu::-webkit-scrollbar {
+    width: 14px;          /* Largura da barra de rolagem */
+    background: #848586;  /* Cor de fundo da barra de rolagem */
+}
+
+.left-menu::-webkit-scrollbar-thumb {
+    background-color: #405164; /* Cor do polegar */
+    border-radius: 10px;       /* Arredondar os cantos do polegar */
+    border: 1px solid #7c7d7e; /* Borda do polegar para criar efeito de espaço */
+}
+
+.left-menu::-webkit-scrollbar-track {
+    background: #c2c3c5;    /* Cor de fundo da trilha */
+    border-radius: 10px; /* Arredondar os cantos da trilha */
+}
+
+
+
+  .left-menu p {
+    color: #d7e1f0d8;
+    font-weight: 600;
+    padding: .35rem;
+    // border-radius: .4rem;
+    // margin: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #6566686f;
+  }
+
+  .left-menu p.active {
+    background-color: #b1bfe835;
+    border-radius: .4rem;
+    border-left: 3px solid #82a3c9;
+  }
+
+  .text-color {
+    color: #a6b4c4;
+  }
