@@ -1,6 +1,6 @@
-<div class="apps-container" >
+<div class="apps-container">
     @for (app of appsList; track $index) {
-        <div  #draggableApp class="app-item-container" (dblclick)="onAppClick(app)" (click)="selectApp(draggableApp, app)" [ngClass]="{'selected': isSelected(app)}">
+        <div cdkDragBoundary=".apps-container" cdkDrag #draggableApp class="app-item-container" (dblclick)="onAppClick(app)" (click)="selectApp(draggableApp, app)" [ngClass]="{'selected': isSelected(app)}">
           <h5 class="app-desk-item" [ngClass]="app.bgColor">{{ app.simbol}}</h5>
           <div class="app-title">{{ app.title }}</div>
         </div>

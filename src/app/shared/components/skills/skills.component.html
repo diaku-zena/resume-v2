@@ -1,60 +1,17 @@
 <div class="d-flex parent">
     <div class="left-menu">
-        <p class="active">Linguagens de Programação</p>
-        <p>Ferramentas de Teste</p>
-        <p>Bancos de Dados</p>
-        <p>Ambientes de Desenvolvimento</p>
-        <p>Ferramentas de Colaboração e Gestão de Projectos</p>
-        <p>Ferramentas de Modelagem e Design</p>
-        <p>Frameworks e Bibliotecas</p>
-        <p>Navegadores e Ferramentas de Teste</p>
+        <p [ngClass]="varControl=='lps'? 'active':''" (click)="selectElement('lps')">Linguagens de Programação</p>
+        <p [ngClass]="varControl=='frameworks'? 'active':''" (click)="selectElement('frameworks')">Frameworks e Bibliotecas</p>
+        <p [ngClass]="varControl=='bd'? 'active':''" (click)="selectElement('bd')">Bancos de Dados</p>
+        <p [ngClass]="varControl=='ambiente'? 'active':''" (click)="selectElement('ambiente')">Ambientes de Desenvolvimento</p>
+        <p [ngClass]="varControl=='ferTeste'? 'active':''" (click)="selectElement('ferTeste')">Navegadores e Ferramentas de Teste</p>
+        <p [ngClass]="varControl=='colab'? 'active':''" (click)="selectElement('colab')">Ferramentas de Colaboração e Gestão de Projectos</p>
+        <p [ngClass]="varControl=='modelagem'? 'active':''" (click)="selectElement('modelagem')">Ferramentas de Modelagem e Design</p>
         <p>Estilização e Animações</p>
-      </div>
-      <div class="content">
-        <div class="skills-container">
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/python-logo.png" alt="">
-                </div>
-                <span class="skill-legend">Python</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/java-logo.png" alt="">
-                </div>
-                <span class="skill-legend">Java</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/csharp-logo.png" alt="">
-                </div>
-                <span class="skill-legend">C#</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/javascript-logo.png" alt="">
-                </div>
-                <span class="skill-legend">JavaScript</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/cpp-logo.png" alt="">
-                </div>
-                <span class="skill-legend">C++</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/php-logo.png" alt="">
-                </div>
-                <span class="skill-legend">PHP</span>
-            </div>
-            <div class="skill-item">
-                <div class="skill-icon">
-                    <img class="w-100 h-100" src="assets/img/typescript-logo.png" alt="">
-                </div>
-                <span class="skill-legend">typescript</span>
-            </div>
-        </div>
-      </div>
-
+        <p>Arquiteturas e Padroes</p>
+    </div>
+    <div class="content">
+        <app-skills-content [skillsList]="skillsList"></app-skills-content>
+        <app-skills-item-detail [selectedSkill]="selectedSkill"></app-skills-item-detail>
+    </div>
 </div>
