@@ -1,5 +1,14 @@
 <div class="d-flex parent">
-    <div class="left-menu">
+    <div class="mobile-menubars my-0">
+        <span class="menu-bar" (click)="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </span>
+        <span class="title">{{ selectedMenuTitle }}</span>
+    </div>
+    <div class="left-menu" [ngClass]="{'active': isMenuVisible}">
+        <div class="top-menu" [ngClass]="{'active': isMenuVisible}" (click)="toggleMenu()">
+            <span class="close-menu-btn"><i class="fa-solid fa-arrow-left"></i></span>
+        </div>
         <p [ngClass]="varControl=='userInfo'? 'active':''" (click)="selectElement('userInfo')">Quem sou</p>
         <p class="mt-2" [ngClass]="varControl=='contactInfo'? 'active':''" (click)="selectElement('contactInfo')">Contacto</p>
     </div>

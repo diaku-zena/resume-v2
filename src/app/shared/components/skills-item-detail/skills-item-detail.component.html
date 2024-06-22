@@ -1,8 +1,41 @@
-<div class="skill-detail-item">
+<div class="skill-detail-item" *ngIf="showDetail">
     <div class="back">
-        <span><i class="fa-solid fa-arrow-left"></i></span>
+        <span (click)="this.backToList.emit()" class="back-icon"><i class="fa-solid fa-arrow-left"></i></span>
+        <span class="detail-title">Minha relação com <strong> {{ selectedSkill?.title }}</strong></span>
     </div>
     <div class="skill-detail-body">
-        
+        <div class="content-header">
+            <div class="user-photo">
+                <img class="skill-img" [src]="selectedSkill?.srcImg" alt="">
+            </div>
+            <div class="user-role">
+                <p class="my-0">Anos de Experiências: {{ selectedSkill?.yearsExperience }}</p>
+                <p class="my-0">Projetos envolvidos: {{ selectedSkill?.projectsInvolved }}</p>
+                <small class="text-success">{{ selectedSkill?.description }}</small>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="skill-info">
+                <h6>Projetos Notáveis:</h6>
+                <ul>
+                  <li *ngFor="let project of selectedSkill?.notableProjects">{{ project }}</li>
+                </ul>
+            
+                <h6>Ferramentas Associadas:</h6>
+                <ul>
+                  <li *ngFor="let tool of selectedSkill?.associatedTools">{{ tool }}</li>
+                </ul>
+            
+                <h6>Certificações:</h6>
+                <ul *ngIf="selectedSkill?.certifications?.length">
+                  <li *ngFor="let cert of selectedSkill?.certifications">{{ cert }}</li>
+                </ul>
+            
+                <h6>Competências Complementares:</h6>
+                <ul *ngIf="selectedSkill?.complementarySkills?.length">
+                  <li *ngFor="let skill of selectedSkill?.complementarySkills">{{ skill }}</li>
+                </ul>
+              </div>
+        </div>
     </div>
 </div>

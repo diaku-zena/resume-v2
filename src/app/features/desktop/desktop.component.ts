@@ -1,10 +1,10 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild } from '@angular/core';
-import { apps } from '../../shared/apps.data';
+import { apps } from '../../shared/data/apps.data';
 import { NgClass } from '@angular/common';
-import { App } from '../../app.component';
 import { DraggableService } from '../../core/services/draggable.service';
 import { WindowService } from '../../core/services/window.service';
 import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { App } from '../../core/interfaces/app.interface';
 
 @Component({
   selector: 'app-desktop',

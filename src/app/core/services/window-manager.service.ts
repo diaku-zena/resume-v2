@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { App } from '../../app.component';
 import { AboutMeComponent } from '../../shared/components/about-me/about-me.component';
+import { App } from '../interfaces/app.interface';
 
 export interface WindowData {
   id: number;
@@ -12,6 +12,7 @@ export interface WindowData {
   zIndex: number;
   isMinimized: boolean;
   isExpanded: boolean;
+  app: App
 }
 
 @Injectable({
@@ -40,7 +41,8 @@ export class WindowManagerService {
       isActive: true,
       zIndex: this.baseZIndex + this.windows.length,
       isMinimized: false,
-      isExpanded: false
+      isExpanded: false,
+      app
     };
     this.windows.push(newWindow);
     return newWindow;

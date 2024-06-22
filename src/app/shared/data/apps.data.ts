@@ -13,7 +13,7 @@ export const apps = [
         },
         {
             id: 3,
-            title: "Certificados",
+            title: "Certificados e Condecorações",
             simbol: "CRT",
             bgColor: "bg-gray"
         },

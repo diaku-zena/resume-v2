@@ -1,5 +1,6 @@
-import { Component, Input, TemplateRef, ViewChild, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, TemplateRef, ViewChild, input } from '@angular/core';
 import { SkillsList } from '../skills/skills.component';
+import { App } from '../../../core/interfaces/app.interface';
 
 @Component({
   selector: 'app-skills-content',
@@ -10,5 +11,7 @@ import { SkillsList } from '../skills/skills.component';
 })
 export class SkillsContentComponent {
   @Input() skillsList!: any;
- 
+ @Output() selectedItem = new EventEmitter<App>();
+
+
 }

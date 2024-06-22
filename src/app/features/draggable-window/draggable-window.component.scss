@@ -10,6 +10,8 @@
     background-color: #27282c;
     border-radius: .5rem;
     margin: auto;
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .window.active {
@@ -21,6 +23,9 @@
     width: 0;
     overflow: hidden;
     bottom: 0;
+    top: 100%;
+    opacity: 0;
+    pointer-events: none;
   }
   
   .window.expanded {
@@ -70,3 +75,12 @@
   .window-body > *{
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .window {
+            width: 90% ;
+            left: 30px ;
+            height: 80% ;
+            top: 60px ;
+        }
+      }

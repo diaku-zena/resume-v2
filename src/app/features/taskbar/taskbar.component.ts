@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { App } from '../../app.component';
 import { NgClass } from '@angular/common';
 import { WindowManagerService } from '../../core/services/window-manager.service';
+import { App } from '../../core/interfaces/app.interface';
 
 @Component({
   selector: 'app-taskbar',

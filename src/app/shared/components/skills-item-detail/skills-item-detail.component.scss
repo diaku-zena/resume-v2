@@ -1,3 +1,46 @@
 .back {
-    padding: .75rem;
+    padding: .2rem;
+    border-bottom: 1px solid #5b629191;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.back span.back-icon {
+    cursor: pointer;
+    border-radius: .5rem;
+    padding: .5rem .75rem;
+}
+
+.back span.back-icon:hover {
+    color: #000;
+    background-color: #ccc;
+}
+
+.detail-title {
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+}
+
+.detail-title strong {
+    color: aquamarine;
+}
+
+.skill-detail-body {
+    padding: 1.1rem;
+    padding-bottom: 5rem;
+    background-color: rgb(35, 36, 39);
+}
+// --------------------------------------------------------------------
+.skill-img {
+    // width: 80px;
+    // height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    object-fit: cover;
+
+}
+.skill-info {
+    margin-top: 20px;
+  }

@@ -1,17 +1,37 @@
-<div class="d-flex parent">
-    <div class="left-menu">
-        <p [ngClass]="varControl=='lps'? 'active':''" (click)="selectElement('lps')">Linguagens de Programação</p>
-        <p [ngClass]="varControl=='frameworks'? 'active':''" (click)="selectElement('frameworks')">Frameworks e Bibliotecas</p>
-        <p [ngClass]="varControl=='bd'? 'active':''" (click)="selectElement('bd')">Bancos de Dados</p>
-        <p [ngClass]="varControl=='ambiente'? 'active':''" (click)="selectElement('ambiente')">Ambientes de Desenvolvimento</p>
-        <p [ngClass]="varControl=='ferTeste'? 'active':''" (click)="selectElement('ferTeste')">Navegadores e Ferramentas de Teste</p>
-        <p [ngClass]="varControl=='colab'? 'active':''" (click)="selectElement('colab')">Ferramentas de Colaboração e Gestão de Projectos</p>
-        <p [ngClass]="varControl=='modelagem'? 'active':''" (click)="selectElement('modelagem')">Ferramentas de Modelagem e Design</p>
-        <p>Estilização e Animações</p>
-        <p>Arquiteturas e Padroes</p>
+<div class="parent">
+    <div class="mobile-menubars my-0">
+        <span class="menu-bar" (click)="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </span>
+        <span class="title">{{ selectedMenuTitle() }}</span>
+    </div>
+    <div class="left-menu" [ngClass]="{'active': isMenuVisible}">
+        <div class="top-menu" [ngClass]="{'active': isMenuVisible}" (click)="toggleMenu()">
+            <span class="close-menu-btn"><i class="fa-solid fa-arrow-left"></i></span>
+
+        </div>
+        <p [ngClass]="varControl()=='lps' ? 'active' : ''" (click)="selectElement('lps')">Linguagens de Programação</p>
+        <p [ngClass]="varControl()=='frameworks' ? 'active' : ''" (click)="selectElement('frameworks')">Frameworks e
+            Bibliotecas</p>
+        <p [ngClass]="varControl()=='bd' ? 'active' : ''" (click)="selectElement('bd')">Bancos de Dados</p>
+        <p [ngClass]="varControl()=='colab' ? 'active' : ''" (click)="selectElement('colab')">Ferramentas de Colaboração
+            e Gestão de Projectos</p>
+        <p [ngClass]="varControl()=='ferTeste' ? 'active' : ''" (click)="selectElement('ferTeste')">Navegadores e
+            Ferramentas de Teste</p>
+        <p [ngClass]="varControl()=='arquiteturaspadroes' ? 'active' : ''"
+            (click)="selectElement('arquiteturaspadroes')">Arquiteturas e Padroes</p>
+        <p [ngClass]="varControl()=='ambiente' ? 'active' : ''" (click)="selectElement('ambiente')">Ambientes de
+            Desenvolvimento</p>
+        <p [ngClass]="varControl()=='modelagem' ? 'active' : ''" (click)="selectElement('modelagem')">Ferramentas de
+            Modelagem e Design</p>
+        <p [ngClass]="varControl()=='estilosanimacoes' ? 'active' : ''" (click)="selectElement('estilosanimacoes')">
+            Estilização e Animações</p>
     </div>
     <div class="content">
-        <app-skills-content [skillsList]="skillsList"></app-skills-content>
-        <app-skills-item-detail [selectedSkill]="selectedSkill"></app-skills-item-detail>
+        <app-skills-content [skillsList]="skillsList" (selectedItem)="showDetailFn($event)"></app-skills-content>
+        <div class="detail-item" [ngClass]="{showDetail: showDetail}">
+            <app-skills-item-detail (backToList)="toggleGoBackToList()" [showDetail]="showDetail"
+                [selectedSkill]="selectedSkill"></app-skills-item-detail>
+        </div>
     </div>
 </div>

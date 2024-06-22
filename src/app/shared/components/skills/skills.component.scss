@@ -1,13 +1,26 @@
-app-skills-item-detail {
+.content {
+    overflow-x: hidden;
+}
+
+.detail-item {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100%;
-
+    height: 0;
+    
+    
     background-color: #27282c;
 
-    display: none;
+    transform: translateX(200%);
+    transition: all ease .3s;
+}
+
+.detail-item.showDetail {
+    transform: translateX(0%);
+    height: 100%;
+    // display: none;
+
 }

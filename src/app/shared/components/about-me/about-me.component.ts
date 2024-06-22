@@ -10,15 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
   varControl: string;
-
+  selectedMenuTitle = '';
+  isMenuVisible!: boolean;
   constructor() {
     this.varControl = 'userInfo';
+    this.selectedMenuTitle = this.varControl
   }
 
   ngOnInit() {
   }
   selectElement(value: string) {
     this.varControl = value;
+    this.toggleMenu();
+    this.selectedMenuTitle = this.varControl
   }
 
+  toggleMenu() {
+    this.isMenuVisible = !this.isMenuVisible;
+  }
 }

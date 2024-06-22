@@ -1,6 +1,6 @@
 <div class="skills-container">
     @for (item of skillsList; track $index) {
-        <div class="skill-item">
+        <div class="skill-item" (click)="this.selectedItem.emit(item)">
             <div class="skill-icon">
                 <img class="w-100 h-100" [src]="item.srcImg" alt="">
             </div>

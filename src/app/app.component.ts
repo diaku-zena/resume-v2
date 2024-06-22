@@ -7,15 +7,7 @@ import { TaskbarComponent } from "./features/taskbar/taskbar.component";
 import { WindowManagerService } from './core/services/window-manager.service';
 import { NgFor } from '@angular/common';
 import { RightToolsComponent } from "./shared/components/right-tools/right-tools.component";
-
-
-export interface App {
-  id: number;
-  title: string;
-  simbol: string;
-  bgColor: string;
-  windowId?: number;
-}
+import { App } from './core/interfaces/app.interface';
 
 
 @Component({
