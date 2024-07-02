@@ -7,6 +7,9 @@ import { AboutMeComponent } from '../../shared/components/about-me/about-me.comp
 import { SkillsComponent } from "../../shared/components/skills/skills.component";
 import { ExperienceComponent } from "../../shared/components/experience/experience.component";
 import { ProjectsComponent } from "../../shared/components/projects/projects.component";
+import { AcademicComponent } from "../../shared/components/academic/academic.component";
+import { HobiesComponent } from "../../shared/components/hobies/hobies.component";
+import { CertificatesComponent } from "../../shared/components/certificates/certificates.component";
 
 
 @Component({
@@ -14,7 +17,7 @@ import { ProjectsComponent } from "../../shared/components/projects/projects.com
     standalone: true,
     templateUrl: './draggable-window.component.html',
     styleUrl: './draggable-window.component.scss',
-    imports: [NgClass, NgIf, AboutMeComponent, SkillsComponent, ExperienceComponent, ProjectsComponent]
+    imports: [NgClass, NgIf, AboutMeComponent, SkillsComponent, ExperienceComponent, ProjectsComponent, AcademicComponent, HobiesComponent, CertificatesComponent]
 })
 export class DraggableWindowComponent implements AfterViewInit{
   @Input() windowData!: WindowData;
