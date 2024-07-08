@@ -16,9 +16,16 @@
     padding: 0;
   }
   
-  .context-menu li {
-    padding: 8px 12px;
+  .context-menu li, a {
+    display: block;
     cursor: pointer;
+    text-decoration: none;
+  }
+
+  a {
+    height: 100%;
+    padding: 8px 12px;
+    color: #fff;
   }
   
   .context-menu li:hover {

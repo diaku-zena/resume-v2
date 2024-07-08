@@ -1,9 +1,9 @@
 <!-- context-menu.component.html -->
 <div class="context-menu" *ngIf="isVisible" [ngStyle]="{'top.px': position.y, 'left.px': position.x}">
     <ul>
-      <li (click)="onOptionSelected('option1')">Opção 1</li>
-      <li (click)="onOptionSelected('option2')">Opção 2</li>
-      <li (click)="onOptionSelected('option3')">Opção 3</li>
+      <li (click)="onOptionSelected('atualizar')"><a href="/">Atualizar</a></li>
+      <li (click)="onOptionSelected('option2')"><a href="#">Opção 2</a></li>
+      <li (click)="onOptionSelected('option3')"><a href="#">Opção 3</a></li>
     </ul>
   </div>
   

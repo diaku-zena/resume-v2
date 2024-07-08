@@ -25,7 +25,7 @@ export class ContextMenuComponent {
   }
 
   onOptionSelected(option: string) {
-    alert(`Selecionou: ${option}`);
+    
     this.isVisible = false;
   }
 }
