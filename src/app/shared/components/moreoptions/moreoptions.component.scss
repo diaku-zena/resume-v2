@@ -17,3 +17,10 @@
     margin: auto;
     margin-top: 1rem;
 }
+
+
+@media (max-width: 468px) {
+    .more-container {
+        width: 100%;
+    }
+}
