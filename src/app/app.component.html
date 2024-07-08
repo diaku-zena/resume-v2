@@ -4,7 +4,7 @@
     <h5>Fullstack Developer</h5>
   </div>
   <div class="howitworks">
-    <p class="py-0 my-0 more-option-title" (click)="toggleShowMoreOptions()">Mais?</p>
+    <p class="py-0 my-0 more-option-title" (click)="toggleShowMoreOptions()">Mais <i class="fa-solid fa-circle-info"></i></p>
     <div class="moreoptions" [ngClass]="{active: toggleMoreOptions}">
       @if (toggleMoreOptions) {
         <app-moreoptions></app-moreoptions>
