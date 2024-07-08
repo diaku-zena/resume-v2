@@ -1,0 +1,83 @@
+.warning {
+    animation: colorChange 10s infinite;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+}
+
+.howitworks {
+    color: aqua;
+    border-bottom: 2px solid aquamarine;
+    align-self: center;
+    border-radius: .5rem;
+}
+
+
+.more-option-title {
+    padding: .74rem;
+    cursor: pointer;
+    height: inherit;
+}
+
+.howitworks:hover {
+    background-color: rgba(27, 45, 135, 0.564);
+}
+
+.moreoptions {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 10%;
+    bottom: 0;
+
+    background-color: rgba(35, 35, 35, 0.826);
+    height: 100svh;
+    width: 100%;
+
+    z-index: 10000;
+    transform: translateY(-200%);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.moreoptions.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: red;
+        color: white;
+    }
+    25% {
+        background-color: blue;
+        color: yellow;
+    }
+    50% {
+        background-color: green;
+        color: black;
+    }
+    75% {
+        background-color: purple;
+        color: pink;
+    }
+    100% {
+        background-color: orange;
+        color: black;
+    }
+}
+
+@media (max-width: 468px) {
+    .howitworks {
+        display: none;
+    }
+
+    .right-header {
+        display: none;
+    }
+}

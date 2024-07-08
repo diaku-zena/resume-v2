@@ -1,0 +1,16 @@
+.feedbacks-container {
+    overflow: hidden;
+}
+
+.feedheader {
+    border-bottom: 2px solid aliceblue;
+    text-align: center;
+
+    position: sticky;
+    top: 0;
+}
+
+.comments {
+    overflow-y: auto;
+}
+

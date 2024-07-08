@@ -1,0 +1,16 @@
+<div class="more-container">
+    @if ((asyncTabs | async) === null) {
+        Processando...
+      }
+    
+      <mat-tab-group  style="color: aliceblue !important;" [color]="themePalette">
+        @for (tab of asyncTabs | async; track tab) {
+          <mat-tab style="color: aliceblue !important;">
+            <ng-template mat-tab-label>{{tab.label}}</ng-template>
+            <!-- {{tab.content}} -->
+            <ng-container *ngComponentOutlet="tab.content" />
+          </mat-tab>
+        }
+      </mat-tab-group>
+      
+</div>

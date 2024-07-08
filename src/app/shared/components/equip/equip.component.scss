@@ -1,0 +1,50 @@
+.equip-container {
+    max-height: 65svh;
+    overflow-y: auto;
+    font-weight: normal;
+}
+
+.equip-container > div {
+    margin-top: 2rem;
+}
+
+.desc-title {
+    border-bottom: 2px solid #037d77e4;
+    padding: .5rem;
+    margin-bottom: 0;
+}
+
+.desc-text {
+    padding: 1rem;
+    padding-bottom: 0;
+    border-left: 2px solid #037d77e4;
+    width: 90%;
+    margin-left: auto;
+}
+
+.members {
+    display: flex;
+    flex-wrap: wrap;
+}
+.member-item {
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.member-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ddd
+}
+
+.name {
+    margin-bottom: 0;
+}
+
+small {
+    color: aquamarine;
+}

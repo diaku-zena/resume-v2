@@ -1,0 +1,19 @@
+.mat-mdc-tab .mdc-tab__text-label {
+    color: unset !important;
+}
+
+.mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
+    color: #ff4081 !important;
+}
+
+.more-container {
+    background-color: rgba(3, 18, 63, 0.949);
+    height: 85%;
+    overflow-y: auto;
+    width: 68%;
+    border-radius: .5rem;
+    padding: 1rem;
+    color: aquamarine;
+    margin: auto;
+    margin-top: 1rem;
+}

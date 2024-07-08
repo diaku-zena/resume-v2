@@ -38,3 +38,15 @@
 .contact input, .contact textarea {
     background-color: #a0a3a8ec;
 }
+
+@media (max-width: 768px) {
+    .contact.active {
+        clip-path: unset
+    }
+}
+
+@media (max-width: 508px) {
+    .contact {
+        width: 100%;
+    }
+}

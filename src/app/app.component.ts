@@ -5,9 +5,10 @@ import { DraggableWindowComponent } from "./features/draggable-window/draggable-
 import { DesktopComponent } from "./features/desktop/desktop.component";
 import { TaskbarComponent } from "./features/taskbar/taskbar.component";
 import { WindowManagerService } from './core/services/window-manager.service';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RightToolsComponent } from "./shared/components/right-tools/right-tools.component";
 import { App } from './core/interfaces/app.interface';
+import { MoreoptionsComponent } from "./shared/components/moreoptions/moreoptions.component";
 
 
 @Component({
@@ -16,11 +17,12 @@ import { App } from './core/interfaces/app.interface';
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     providers: [WindowManagerService],
-    imports: [RouterOutlet, NgFor, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent]
+    imports: [RouterOutlet, NgFor, NgIf, NgClass, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent, MoreoptionsComponent]
 })
 export class AppComponent {
   title = 'resume-v2';
   activeWindowId!: number;
+  toggleMoreOptions = false;
 
   @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
 
@@ -69,5 +71,9 @@ export class AppComponent {
 
   openWindowTaskBar(){
     this.windowManager.activateWindow(this.activeWindowId);
+  }
+
+  toggleShowMoreOptions() {
+    this.toggleMoreOptions = !this.toggleMoreOptions;
   }
 }

@@ -6,3 +6,9 @@
 .fa-message {
     padding: .5rem;
 }
+
+@media (max-width: 768px) {
+    .user {
+        position: static;
+    }
+}

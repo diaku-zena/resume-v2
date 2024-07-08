@@ -1,6 +1,22 @@
-<header class="px-4">
-  <small>Diaku Zena Manuel</small>
-  <h5>Fullstack Developer</h5>
+<header class="px-4 d-flex justify-content-between">
+  <div class="left-header">
+    <small>Diaku Zena Manuel</small>
+    <h5>Fullstack Developer</h5>
+  </div>
+  <div class="howitworks">
+    <p class="py-0 my-0 more-option-title" (click)="toggleShowMoreOptions()">Mais?</p>
+    <div class="moreoptions" [ngClass]="{active: toggleMoreOptions}">
+      @if (toggleMoreOptions) {
+        <app-moreoptions></app-moreoptions>
+      }
+    </div>
+  </div>
+  <div class="right-header">
+    <h6 class="my-0 py-1 warning">
+      EM DESENVOLVIMENTO!
+    </h6>
+    <small class="my-1 my-0">Este Portfolio está em desenvolvimento.</small>
+  </div>
 </header>
 <!-- <main (contextmenu)="onRightClick($event)">
   <app-desktop (appClick)="onAppClick($event)"></app-desktop>

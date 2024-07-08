@@ -5,13 +5,15 @@ import { DraggableService } from '../../core/services/draggable.service';
 import { WindowService } from '../../core/services/window.service';
 import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { App } from '../../core/interfaces/app.interface';
+import { FeedbacksComponent } from "../feedbacks/feedbacks.component";
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-desktop',
-  standalone: true,
-  imports: [NgClass, DragDropModule],
-  templateUrl: './desktop.component.html',
-  styleUrl: './desktop.component.scss'
+    selector: 'app-desktop',
+    standalone: true,
+    templateUrl: './desktop.component.html',
+    styleUrl: './desktop.component.scss',
+    imports: [NgClass, DragDropModule, FeedbacksComponent]
 })
 export class DesktopComponent {
   appsList = apps;
@@ -23,8 +25,11 @@ export class DesktopComponent {
   offsetY = 0;
   windowRef: Window | null;
 
+  showFeedbacks = false;
+
   selectedApp: App | null = null;
   onAppClick(app: App) {
+    
     this.appClick.emit(app);
   }
 
@@ -52,5 +57,9 @@ export class DesktopComponent {
         event.currentIndex,
       );
     }
+  }
+
+  showFeedbacksFn() {
+    this.showFeedbacks = !this.showFeedbacks;
   }
 }

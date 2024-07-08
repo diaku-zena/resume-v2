@@ -6,4 +6,12 @@
         </div>
 
     }
+
+    <div class="mobile-feedback-menuicon" [ngClass]="{active: !showFeedbacks}" (click)="showFeedbacksFn()">
+      <i class="fa-solid fa-comments"></i>
+    </div>
+    <div class="feedbacks" [ngClass]="{active: showFeedbacks}">
+      <app-feedbacks></app-feedbacks>
+      <span class="close fa fa-times" [ngClass]="{active: showFeedbacks}" (click)="showFeedbacksFn()"></span>
+    </div>
   </div>

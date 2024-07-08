@@ -1,0 +1,29 @@
+
+.user-logo {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-top: .5rem;
+}
+
+.user-logo img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.user-logo p, .user-desc {
+    width: 80%;
+    font-size: small;
+    margin: 0;
+}
+
+.username {
+    color: aquamarine;
+    margin-left: .5rem;
+}
+
+.user-desc {
+    align-self: center;
+    margin-left: auto;
+}
