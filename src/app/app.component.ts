@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { afterNextRender, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ContextMenuComponent } from './features/context-menu/context-menu.component';
 import { DraggableWindowComponent } from "./features/draggable-window/draggable-window.component";
@@ -19,14 +19,26 @@ import { MoreoptionsComponent } from "./shared/components/moreoptions/moreoption
     providers: [WindowManagerService],
     imports: [RouterOutlet, NgFor, NgIf, NgClass, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent, MoreoptionsComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'resume-v2';
   activeWindowId!: number;
   toggleMoreOptions = false;
+  showBeWelcome = false;
 
   @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
 
-  constructor(private windowManager: WindowManagerService) {}
+  constructor(private windowManager: WindowManagerService) {
+    afterNextRender(() => {
+      this.showBeWelcome = true;
+
+    });
+      
+  }
+  ngAfterViewInit(): void {
+    
+  }
+  ngOnInit(): void {
+  }
 
   onRightClick(event: MouseEvent) {
     this.contextMenu.showMenu(event);
@@ -40,6 +52,11 @@ export class AppComponent {
   //     this.openApps.push(app);
   //   }
   // }
+
+  toggleShowBW() {
+    this.showBeWelcome = !this.showBeWelcome;
+  }
+  
 
   onAppClick(app: App) {
     if (!this.openApps.find(openApp => openApp.id === app.id)) {

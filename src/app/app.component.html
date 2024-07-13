@@ -35,6 +35,27 @@
     </app-draggable-window>
   </ng-container>
   <app-context-menu #contextMenu></app-context-menu>
+  <div class="bewelcome" [ngClass]="{active: showBeWelcome}">
+    <div class="welcome-header">
+      <span>Seja Bem-Vindo ao meu Portifolio!</span>
+      <span class="fa fa-close" (click)="toggleShowBW()"></span>
+    </div>
+    <div class="welcome-body">
+      <div class="welcome-body-left">
+        <img src="assets/img/diaku-1.png" alt="">
+      </div>
+      <div class="welcome-body-right p-3">
+        <h5>Olá, eu sou</h5>
+        <h3>Diaku Zena Manuel</h3>
+        <p class="text-normal">
+          Sou um desenvolvedor apaixonado por tecnologia e inovação. Com uma sólida experiência em desenvolvimento de softwares, estou sempre em busca de novos desafios e oportunidades para crescer e contribuir com projetos inovadores. Minha missão é criar soluções que façam a diferença e proporcionem uma experiência incrível para os usuários. 
+        </p>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="bwbtn" [ngClass]="{active: !showBeWelcome}" (click)="toggleShowBW()"><i class="fa-regular fa-face-smile-beam"></i></div>
 </main>
 
 <footer>
