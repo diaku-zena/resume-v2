@@ -31,7 +31,6 @@ export class ExperienceComponent {
     this.toggleMenu();
     this.varControl.set(value);
     this.skillsList = this.skillsListAll[value];
-    
   }
 
   showDetailFn(item: any) {

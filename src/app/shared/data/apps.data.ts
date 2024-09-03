@@ -41,4 +41,16 @@ export const apps = [
             simbol: "SK",
             bgColor: "bg-success"
         },
+        {
+            id: 8,
+            title: "Serviços",
+            simbol: "SVC",
+            bgColor: "bg-warning"
+        },
+        {
+            id: 9,
+            title: "Referencias",
+            simbol: "REF",
+            bgColor: "bg-primary"
+        },
     ]

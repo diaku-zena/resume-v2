@@ -9,15 +9,16 @@ import { NgClass, NgFor, NgIf } from '@angular/common';
 import { RightToolsComponent } from "./shared/components/right-tools/right-tools.component";
 import { App } from './core/interfaces/app.interface';
 import { MoreoptionsComponent } from "./shared/components/moreoptions/moreoptions.component";
+import { StorageService } from './core/services/storage.service';
 
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    providers: [WindowManagerService],
-    imports: [RouterOutlet, NgFor, NgIf, NgClass, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent, MoreoptionsComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  providers: [WindowManagerService],
+  imports: [RouterOutlet, NgFor, NgIf, NgClass, ContextMenuComponent, DraggableWindowComponent, DesktopComponent, TaskbarComponent, RightToolsComponent, MoreoptionsComponent]
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'resume-v2';
@@ -27,17 +28,25 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild('contextMenu') contextMenu!: ContextMenuComponent;
 
-  constructor(private windowManager: WindowManagerService) {
+  constructor(private windowManager: WindowManagerService, private storageService: StorageService) {
     afterNextRender(() => {
-      this.showBeWelcome = true;
+      if (!this.storageService.getWelcomeWD()) {
+        this.showBeWelcome = true;
+        this.storageService.setWelcomeWD(true);
+      } else {
+        this.showBeWelcome = false;
+      }
 
     });
-      
+
   }
   ngAfterViewInit(): void {
-    
+
   }
   ngOnInit(): void {
+    if (this.storageService.getWelcomeWD()) {
+      // this.showBeWelcome = false;
+    }
   }
 
   onRightClick(event: MouseEvent) {
@@ -56,7 +65,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   toggleShowBW() {
     this.showBeWelcome = !this.showBeWelcome;
   }
-  
+
 
   onAppClick(app: App) {
     if (!this.openApps.find(openApp => openApp.id === app.id)) {
@@ -70,7 +79,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   onWindowClick(windowId: number) {
-    
+
     this.windowManager.activateWindow(windowId);
   }
 
@@ -86,7 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.windowManager.expandWindow(windowId);
   }
 
-  openWindowTaskBar(){
+  openWindowTaskBar() {
     this.windowManager.activateWindow(this.activeWindowId);
   }
 

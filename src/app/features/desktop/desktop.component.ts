@@ -7,6 +7,7 @@ import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@
 import { App } from '../../core/interfaces/app.interface';
 import { FeedbacksComponent } from "../feedbacks/feedbacks.component";
 import { BrowserModule } from '@angular/platform-browser';
+import { StorageService } from '../../core/services/storage.service';
 
 @Component({
     selector: 'app-desktop',
@@ -28,6 +29,16 @@ export class DesktopComponent {
   showFeedbacks = false;
 
   selectedApp: App | null = null;
+
+  constructor(private windowService: WindowService, private storageService: StorageService,) {
+    this.windowRef = this.windowService.windowRef;
+  }
+  ngOnInit() {
+    // if(!this.storageService.getWelcomeWD()) {
+    //   this.storageService.setWelcomeWD(true);
+    // }
+  }
+
   onAppClick(app: App) {
     
     this.appClick.emit(app);
@@ -42,9 +53,7 @@ export class DesktopComponent {
     return this.selectedApp && this.selectedApp.id === app.id;
   }
 
-  constructor(private windowService: WindowService,) {
-    this.windowRef = this.windowService.windowRef;
-  }
+  
 
   drop(event: any) {
     if (event.previousContainer === event.container) {

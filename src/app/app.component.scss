@@ -87,6 +87,7 @@
     border: 2px solid aquamarine;
     background-color: rgba(32, 36, 39, 0.744);
     width: 55%;
+    max-width: 700px;
     height: 60%;
     transition: transform 1s, opacity 1s;
     opacity: 0;
@@ -237,6 +238,8 @@
 
     .bewelcome {
         overflow: hidden;
+        height: 80%;
+        background-color: rgba(22, 29, 54, 0.933);
     }
 
     .welcome-header {
