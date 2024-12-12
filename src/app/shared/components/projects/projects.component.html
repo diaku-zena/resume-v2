@@ -1,14 +1,30 @@
 <div class="d-flex parent">
     <div class="left-menu">
-        <p [ngClass]="varControl=='overview'? 'active':''"  (click)="selectItem('overview')">Visão Geral</p>
-        <p [ngClass]="varControl=='active'? 'active':''"  (click)="selectItem('active')">Projetos Ativos</p>
-        <p [ngClass]="varControl=='completed'? 'active':''"  (click)="selectItem('completed')">Projetos Concluídos</p>
+        <p [ngClass]="varControl=='at'? 'active':''"  (click)="selectItem('at')">Overview</p>
+        <!--<p [ngClass]="varControl=='freelancer'? 'active':''"  (click)="selectItem('freelancer')">Freelancer</p>
+        <p [ngClass]="varControl=='sipar'? 'active':''"  (click)="selectItem('sipar')">Grupo Sipar</p>
         <p [ngClass]="varControl=='favorites'? 'active':''"  (click)="selectItem('favorites')">Favoritos</p>
         <p [ngClass]="varControl=='Colaboracao'? 'active':''"  (click)="selectItem('Colaboracao')">Colaboracao</p>
-        <p [ngClass]="varControl=='settings'? 'active':''"  (click)="selectItem('settings')">Configurações</p>
+        <p [ngClass]="varControl=='settings'? 'active':''"  (click)="selectItem('settings')">Configurações</p> -->
 
     </div>
     <div class="content">
+        <div class="projects row">
+            <a href="https://pacdp-angola.org" target="_blank" class="project-item card col-5 m-3 mx-1">
+                <div class="card-header">
+                    PLATAFORMA ANGOLANA DA CIDADANIA SOBRE DIVIDA PUBLICA
+                </div>
+                <div class="project-body">
+                    <div class="project-banner">
+                        <img src="assets/projects/pacdp.png" alt="">
+                    </div>
+                    <div class="project-desc">
+                        Site instituicional da PACDP
+                    </div>
+                </div>
+            </a>
 
+        </div>
+    
     </div>
 </div>

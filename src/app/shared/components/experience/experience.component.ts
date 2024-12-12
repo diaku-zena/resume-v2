@@ -16,7 +16,7 @@ export class ExperienceComponent {
 
   skillsList!: Skill[];
 
-  varControl = signal("lps");
+  varControl = signal("at");
   selectedMenuTitle = computed(()=> this.varControl());
   selectedSkill!: Skill;
   showDetail = false;

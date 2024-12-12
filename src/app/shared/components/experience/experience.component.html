@@ -10,15 +10,87 @@
             <span class="close-menu-btn"><i class="fa-solid fa-arrow-left"></i></span>
 
         </div>
-        <p [ngClass]="varControl()=='lps' ? 'active' : ''" (click)="selectElement('lps')">Angola Telecom</p>
-        <p [ngClass]="varControl()=='frameworks' ? 'active' : ''" (click)="selectElement('frameworks')">Gurpo Sipar</p>
-        <p [ngClass]="varControl()=='bd' ? 'active' : ''" (click)="selectElement('bd')">Freelancer</p>
+        <p [ngClass]="varControl()=='at' ? 'active' : ''" (click)="selectElement('at')">Angola Telecom</p>
+        <p [ngClass]="varControl()=='freelancer' ? 'active' : ''" (click)="selectElement('freelancer')">Freelancer</p>
+        <p [ngClass]="varControl()=='sipar' ? 'active' : ''" (click)="selectElement('sipar')">Gurpo Sipar</p>
     </div>
     <div class="content">
-        <!-- <app-skills-content [skillsList]="skillsList" (selectedItem)="showDetailFn($event)"></app-skills-content> -->
-        <div class="detail-item" [ngClass]="{showDetail: showDetail}">
-            <!-- <app-skills-item-detail (backToList)="toggleGoBackToList()" [showDetail]="showDetail"
-                [selectedSkill]="selectedSkill"></app-skills-item-detail> -->
-        </div>
+        @if (varControl()=='freelancer') {
+            <div class="projects row">
+                <a href="https://pacdp-angola.org" target="_blank" class="project-item card col-5 m-3 mx-1">
+                    <div class="card-header">
+                        PLATAFORMA ANGOLANA DA CIDADANIA SOBRE DIVIDA PUBLICA
+                    </div>
+                    <div class="project-body">
+                        <div class="project-banner">
+                            <img src="assets/projects/pacdp.png" alt="">
+                        </div>
+                        <div class="project-desc">
+                            Site instituicional da PACDP
+                        </div>
+                    </div>
+                </a>
+    
+            </div>
+        } @else if(varControl()=="at") {
+            <div class="projects row m-3">
+                <div class="card-header mb-2">
+                    <h3>DESENVOLVEDOR WEB</h3>
+                </div>
+                <div class="project-body">
+                    <p>Trabalho atualmente na <strong>Angola Telecom</strong> como desenvolvedor Web.</p>
+                    <p>As principais actividades incluem desenvovimento de aplicações para uso interno.</p>
+                    <p>Dou suporte também a outras áreas como em redes.</p>
+                    <h4>Dentre as principais tecnologias incluem:</h4>
+                    <div class="techs">
+                        <span class="tech-item btn btn-primary">C# (ASPNET Core)</span>
+                        <span class="tech-item btn btn-primary">Entity Framework Core</span>
+                        <span class="tech-item btn btn-primary">Dapper</span>
+                        <span class="tech-item btn btn-primary">Angular</span>
+                        <span class="tech-item btn btn-primary">Angular Matirial</span>
+                        <span class="tech-item btn btn-primary">SyncFusion</span>
+                        <span class="tech-item btn btn-primary">MySQL</span>
+                        <span class="tech-item btn btn-primary">SQL SERVER</span>
+                        <span class="tech-item btn btn-primary">Docker</span>
+                        <span class="tech-item btn btn-primary">Git/Github</span>
+                    </div>
+                    <h4>As principais arquiteturas incluem:</h4>
+                    <div class="arch">
+                        <span class="tech-item btn btn-primary">Clean Arch</span>
+                        <span class="tech-item btn btn-primary">Atomic Design</span>
+                        <span class="tech-item btn btn-primary">MVC</span>
+
+                    </div>
+                </div>    
+            </div>
+        } @else if(varControl()=="sipar") {
+            <div class="projects row m-3">
+                <div class="card-header mb-2">
+                    <h3>DESENVOLVEDOR WEB</h3>
+                </div>
+                <div class="project-body">
+                    <p>                    Trabalhei como Desenvolvedor Full Stack na Empresa Sipar no periodo de 02/2022 a 05/2022 - Remotamente do Brasil</p>
+                    <p>Principais tarefas:  desenvolver sistemas multitarefas que permite o 
+                    cadastro e gerenciamento de Empresas que prestam determinados 
+                    serviços de manutençao de Elevadores, Edifícios e outros 
+                    equipamentos à uma determinada empresa cliente, que tambem 
+                    gerencia a plataforma.  </p> 
+                    <h4>Dentre as principais tecnologias incluem:</h4>
+                    <div class="techs">
+                        <span class="tech-item btn btn-primary">PHP (Laravel)</span>
+                        <span class="tech-item btn btn-primary">Composer</span>
+                        <span class="tech-item btn btn-primary">HTML</span>
+                        <span class="tech-item btn btn-primary">CSS</span>
+                        <span class="tech-item btn btn-primary">MYSQL</span>
+                        <span class="tech-item btn btn-primary">Git/Github</span>
+                    </div>
+                    <h4>As principais arquiteturas incluem:</h4>
+                    <div class="arch">
+                        <span class="tech-item btn btn-primary">MVC</span>
+
+                    </div>
+                </div>    
+            </div>
+        }
     </div>
 </div>

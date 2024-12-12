@@ -1,0 +1,38 @@
+.row {
+    width: 98%;
+}
+.card {
+    background-color: rgb(63, 70, 85);
+    text-decoration: none;
+}
+.project-banner {
+    height: 150px;
+    width: 100%;
+}
+
+.project-banner img {
+    height: 100%;
+    width: 100%;
+}
+
+.card-header {
+    color: aliceblue;
+}
+.project-desc {
+    font-weight: 400 !important;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    color: aliceblue;
+
+    overflow-x: hidden;
+}
+
+.project-body p {
+    font-weight: 500;
+    font-size: .85rem;
+}
+
+.tech-item {
+    margin: .5rem;
+    overflow-x: hidden;
+}

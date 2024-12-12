@@ -11,24 +11,24 @@ export const apps = [
             simbol: "EXP",
             bgColor: "bg-primary"
         },
-        {
-            id: 3,
-            title: "Certificados e Condecorações",
-            simbol: "CRT",
-            bgColor: "bg-gray"
-        },
-        {
-            id: 4,
-            title: "Hobies",
-            simbol: "HB",
-            bgColor: "bg-info"
-        },
-        {
-            id: 5,
-            title: "Formação Acadêmica",
-            simbol: "FAc",
-            bgColor: "bg-primary"
-        },
+        // {
+        //     id: 3,
+        //     title: "Certificados e Condecorações",
+        //     simbol: "CRT",
+        //     bgColor: "bg-gray"
+        // },
+        // {
+        //     id: 4,
+        //     title: "Hobies",
+        //     simbol: "HB",
+        //     bgColor: "bg-info"
+        // },
+        // {
+        //     id: 5,
+        //     title: "Formação Acadêmica",
+        //     simbol: "FAc",
+        //     bgColor: "bg-primary"
+        // },
         {
             id: 6,
             title: "Projetos",
@@ -41,16 +41,16 @@ export const apps = [
             simbol: "SK",
             bgColor: "bg-success"
         },
-        {
-            id: 8,
-            title: "Serviços",
-            simbol: "SVC",
-            bgColor: "bg-warning"
-        },
-        {
-            id: 9,
-            title: "Referencias",
-            simbol: "REF",
-            bgColor: "bg-primary"
-        },
+        // {
+        //     id: 8,
+        //     title: "Serviços",
+        //     simbol: "SVC",
+        //     bgColor: "bg-warning"
+        // },
+        // {
+        //     id: 9,
+        //     title: "Referencias",
+        //     simbol: "REF",
+        //     bgColor: "bg-primary"
+        // },
     ]

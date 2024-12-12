@@ -1,17 +1,17 @@
 <div class="contact" [ngClass]="showContactForm()? 'active':''">
     <h5 class="p-2">Entre em contacto comigo</h5>
-    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+    <form id="contactForm" action="https://formspree.io/f/xyyveqkb" method="POST" data-sb-form-api-token="API_TOKEN">
 
       <!-- Name Input -->
       <div class="form-floating mb-3">
-        <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
+        <input class="form-control" id="name" name="fullname" type="text" placeholder="Name" data-sb-validations="required" />
         <label for="name">Seu Nome</label>
         <div class="invalid-feedback" data-sb-feedback="name:required">Name is required.</div>
       </div>
 
       <!-- Email Input -->
       <div class="form-floating mb-3">
-        <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
+        <input class="form-control" name="email" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
         <label for="emailAddress">Seu Email</label>
         <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
         <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
@@ -19,7 +19,7 @@
 
       <!-- Message Input -->
       <div class="form-floating mb-3">
-        <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+        <textarea class="form-control" name="message" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
         <label for="message">Escreva sua mensagem</label>
         <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
       </div>
